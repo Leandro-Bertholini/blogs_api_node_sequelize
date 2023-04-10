@@ -31,7 +31,8 @@
     "test-coverage": "jest -i --verbose --forceExit --coverage",
     "predev": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "dev": "nodemon .",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "db:restore": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "devDependencies": {
     "change-case": "4.1.2",
