@@ -19,6 +19,7 @@
   "main": "src/server.js",
   "scripts": {
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "db:restore": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
     "start": "node .",
     "start:test": "API_PORT=3030 NODE_ENV=test node .",
     "kill:test": "if lsof -t -i:3030; then kill -9 $(lsof -t -i:3030); fi",
@@ -32,7 +33,6 @@
     "predev": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "dev": "nodemon .",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
-    "db:restore": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   },
   "devDependencies": {
     "change-case": "4.1.2",
