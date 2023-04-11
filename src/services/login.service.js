@@ -14,7 +14,7 @@ const AuthorizationToken = async ({email, password}) => {
   const { id, email } = user;
   const token = generateToken({id, email});
 
-  return token;
+  return { token };
 };
 
 module.exports = AuthorizationToken;
