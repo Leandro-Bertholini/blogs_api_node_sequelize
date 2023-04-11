@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { generateToken } = require('../utils/JWT');
 
 const AuthorizationToken = async ({email, password}) => {
 
@@ -11,7 +12,7 @@ const AuthorizationToken = async ({email, password}) => {
 
   if (!user) return 'Invalid fields';
 
-  const { id, email } = user;
+  const { id } = user;
   const token = generateToken({id, email});
 
   return { token };

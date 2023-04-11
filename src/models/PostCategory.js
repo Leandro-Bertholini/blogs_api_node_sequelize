@@ -6,13 +6,20 @@
 module.exports = (sequelize, DataTypes) => {
   const PostCategory = sequelize.define('PostCategory', {
 
-    postId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
-  }, {
-    tableName: 'post_categories',
-    underscored: true,
-    timestamps: false
-  });
+    postId: { 
+      type: DataTypes.INTEGER, 
+      allowNull: false, 
+  },
+  categoryId: { 
+      type: DataTypes.INTEGER, 
+      allowNull: false ,
+  },
+},
+{
+  underscored: true,
+  tableName: 'posts_categories',
+  timestamps: false
+});
 
   PostCategory.associate = ({ BlogPost, Category }) => {
 
