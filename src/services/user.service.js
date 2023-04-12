@@ -24,7 +24,7 @@ const getById = async (id) => {
   });
 
   // console.log(user)
-  if (!user) return { type: 404, message: 'User does not exist'};
+  if (!user) return { type: 404, message: 'User does not exist' };
 
   return { type: 200, message: user };
 };
