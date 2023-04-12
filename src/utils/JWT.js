@@ -6,23 +6,22 @@ const TOKEN_SECRET = process.env.JWT_SECRET || 'mySecret';
 
 const jwtConfig = {
   expiresIn: '15d',
-  algorithm: 'HS256' // Algoritmo utilizado para encodar
-}
+  algorithm: 'HS256', // Algoritmo utilizado para encodar
+};
 
 const generateToken = (payload) => jwt.sign(payload, TOKEN_SECRET, jwtConfig);
 
-const authenticateToken = async (token) => {
-  // const TOKEN = req.headers.authorization;
+const authenticateToken = async (req, res, next) => {
+  const TOKEN = req.headers.authorization;
 
-  if (!token) {
+  if (!TOKEN) {
     return res.status(401).json({ message: 'Token not found' });
   }
   
   try {
-    const decryptToken = jwt.verify(token, TOKEN_SECRET);T
+    const decryptToken = jwt.verify(TOKEN, TOKEN_SECRET);
     res.locals.user = decryptToken;
     next();
-
   } catch (error) {
     return res.status(401).json({ message: 'Expired or invalid token' });
   } 
@@ -30,5 +29,5 @@ const authenticateToken = async (token) => {
 
 module.exports = {
   generateToken,
-  authenticateToken
+  authenticateToken,
 };
