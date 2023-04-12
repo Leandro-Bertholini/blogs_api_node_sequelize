@@ -15,19 +15,17 @@ const authenticateToken = async (token) => {
   // const TOKEN = req.headers.authorization;
 
   if (!token) {
-    return res.status(401).json({ message: 'Token not found'});
-  };
-
-  try{
-    const decodedToken = await jwt.verify(token, TOKEN_SECRET);
-    return decodedToken;
-  } catch(err) {
-
-    const error = new Error(error.status(401)
-      .json({ message: 'Expired or invalid token' }));
-
-    return error;
+    return res.status(401).json({ message: 'Token not found' });
   }
+  
+  try {
+    const decryptToken = jwt.verify(token, TOKEN_SECRET);T
+    res.locals.user = decryptToken;
+    next();
+
+  } catch (error) {
+    return res.status(401).json({ message: 'Expired or invalid token' });
+  } 
 };
 
 module.exports = {
