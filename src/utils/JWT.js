@@ -15,7 +15,7 @@ const generateToken = (payload) => jwt.sign(payload, TOKEN_SECRET);
 //   const token = req.headers.authorization;
 
 //   const
-};
+// };
 
 module.exports = {
   generateToken,

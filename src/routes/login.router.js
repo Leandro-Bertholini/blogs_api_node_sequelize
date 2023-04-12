@@ -4,6 +4,6 @@ const { loginController } = require('../controllers');
 
 const route = express.Router();
 
-route.post('/', loginController.AuthorizationToken);
+route.post('/', loginController.authorizationToken);
 
 module.exports = route;

@@ -1,12 +1,12 @@
 const { User } = require('../models');
 const { generateToken } = require('../utils/JWT');
 
-const AuthorizationToken = async ({email, password}) => {
+const authorizationToken = async ({email, password}) => {
 
   if (!email || !password) return 'Some required fields are missing';
 
   const user = await User.findOne({
-    attributes: [id, email],
+    attributes: ['id', 'email'],
     where: { email, password }
   });
 
@@ -18,4 +18,4 @@ const AuthorizationToken = async ({email, password}) => {
   return { token };
 };
 
-module.exports = AuthorizationToken;
+module.exports = { authorizationToken };
