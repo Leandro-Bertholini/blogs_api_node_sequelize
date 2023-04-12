@@ -21,5 +21,6 @@ route.post(
   );
 
 route.get('/', authenticateToken, userController.getAllUsers);
+route.get('/:id', authenticateToken, userController.getById);
 
 module.exports = route;
