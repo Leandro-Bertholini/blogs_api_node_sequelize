@@ -19,4 +19,6 @@ route.post(
   userController.insertUser,
   );
 
+route.get('/', userController.getAllUsers);
+
 module.exports = route;

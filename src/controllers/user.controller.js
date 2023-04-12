@@ -7,6 +7,12 @@ const insertUser = async (req, res) => {
   return res.status(201).json(newUserToken);
 };
 
+const getAllUsers = async (_req, res) => {
+  const { type, message } = await userService.getAllUsers();
+  return res.status(type).json(message);
+};
+
 module.exports = {
   insertUser,
+  getAllUsers,
 };
