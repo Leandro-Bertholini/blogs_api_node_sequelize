@@ -7,6 +7,7 @@ const {
   validatePassword,
   checkExistingEmail,
 } = require('../middlewares/userPost.middlewares');
+const { authenticateToken } = require('../utils/JWT');
 
 const route = express.Router();
 
@@ -19,6 +20,6 @@ route.post(
   userController.insertUser,
   );
 
-route.get('/', userController.getAllUsers);
+route.get('/', authenticateToken, userController.getAllUsers);
 
 module.exports = route;

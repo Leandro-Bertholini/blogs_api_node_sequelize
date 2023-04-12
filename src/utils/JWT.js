@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const TOKEN_SECRET = process.env.JWT_SECRET || 'mySecret';
 
-// Objeto de configuração adicional => config do JWT que não será usado
+// Objeto de configuração adicional => config do JWT, que não será usado
 
 // const jwtConfig = {
 //   expiresIn: '15d',
