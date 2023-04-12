@@ -9,12 +9,12 @@ const insertUser = async (displayName, email, password, image) => {
 
 const getAllUsers = async () => {
   const allUsers = await User.findAll({
-    attributes: { exclude: ['password'] }
+    attributes: { exclude: ['password'] },
   });
 
-  if (!allUsers) return { type: 500, message: null};
+  if (!allUsers) return { type: 500, message: null };
 
-  return { type: 200, message: allUsers};
+  return { type: 200, message: allUsers };
 };
 
 module.exports = {
