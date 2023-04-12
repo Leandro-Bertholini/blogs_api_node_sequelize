@@ -2,14 +2,14 @@ const jwt = require('jsonwebtoken');
 
 const TOKEN_SECRET = process.env.JWT_SECRET || 'mySecret';
 
-// Objeto de configuração adicional => config do JWT
+// Objeto de configuração adicional => config do JWT que não será usado
 
-const jwtConfig = {
-  expiresIn: '15d',
-  algorithm: 'HS256', // Algoritmo utilizado para encodar
-};
+// const jwtConfig = {
+//   expiresIn: '15d',
+//   algorithm: 'HS256', // Algoritmo utilizado para encodar
+// };
 
-const generateToken = (payload) => jwt.sign(payload, TOKEN_SECRET, jwtConfig);
+const generateToken = (payload) => jwt.sign(payload, TOKEN_SECRET);
 
 const authenticateToken = async (req, res, next) => {
   const TOKEN = req.headers.authorization;
