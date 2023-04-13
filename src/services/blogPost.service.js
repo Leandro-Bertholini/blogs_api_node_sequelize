@@ -22,12 +22,12 @@ const getAllPost = async () => {
   return { type: 200, message: allPosts };
 };
 
-const getPostById = async (id) => {
+const getPostById = async ({ id }) => {
   const targetPost = await BlogPost.findOne(
     {
       where: { id },
       include: [
-        { model: User, as: 'user', attributes: { exclude: [' password'] } },
+        { model: User, as: 'user', attributes: { exclude: ['password'] } },
         { model: Category, as: 'categories' },
       ],
     },
