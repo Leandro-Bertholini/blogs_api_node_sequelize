@@ -1,0 +1,8 @@
+const { postService } = require('../services');
+
+// const insertPost = async (req, res) => {
+//   const { id } = req.user;
+//   const { title, content, categoryIds} = req.body;
+
+//   const response = await postService.insertPost(id, { title, content, categoryIds});
+// };
