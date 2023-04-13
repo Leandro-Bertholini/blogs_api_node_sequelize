@@ -6,3 +6,12 @@ const { postService } = require('../services');
 
 //   const response = await postService.insertPost(id, { title, content, categoryIds});
 // };
+
+const getAllPost = async (req, res) => {
+  const { type, message } = await postService.getAllPost();
+  return res.status(type).json(message);
+};
+
+module.exports = {
+  getAllPost,
+};

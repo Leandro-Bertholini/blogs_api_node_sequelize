@@ -21,7 +21,7 @@ const getAllPost = async () => {
      }],
     
   });
-  return allPosts;
+  return { type: 200, message: allPosts };
 };
 
 module.exports = {
