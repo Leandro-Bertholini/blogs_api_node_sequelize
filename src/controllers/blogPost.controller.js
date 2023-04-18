@@ -13,21 +13,22 @@ const getAllPost = async (req, res) => {
 };
 
 const getPostById = async (req, res) => {
-  const { type, message } = await postService.getPostById(req.params);
+  const { id } = req.params;
+  const { type, message } = await postService.getPostById(id);
   return res.status(type).json(message);
 };
 
-const updatePostById = async(req, res) => {
+const updatePostById = async (req, res) => {
   const { id } = req.params;
   const { title, content } = req.body;
-  const { userId } = req.user;
+  const userObj = req.user; // retorna o objeto decodificado
 
-  const { type, message } = await postService.updatePostById(id, userId, { title, content })
+  const { type, message } = await postService.updatePostById(id, userObj.id, { title, content });
   res.status(type).json(message);
-
 };
 
 module.exports = {
   getAllPost,
   getPostById,
+  updatePostById,
 };

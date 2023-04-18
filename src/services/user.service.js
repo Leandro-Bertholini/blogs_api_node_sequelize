@@ -3,7 +3,7 @@ const { generateToken } = require('../utils/JWT');
 
 const insertUser = async (displayName, email, password, image) => {
   const newUser = await User.create({ displayName, email, password, image });
-  const token = generateToken(newUser.id, newUser.email);
+  const token = generateToken({ id: newUser.id, email: newUser.email }); 
   return { token };
 };
 

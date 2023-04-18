@@ -8,10 +8,10 @@ const authorizationToken = async ({ email, password }) => {
     attributes: ['id', 'email'],
     where: { email, password },
   });
-
   if (!user) return 'Invalid fields';
 
   const { id } = user;
+  
   const token = generateToken({ id, email });
 
   return { token };
