@@ -22,5 +22,6 @@ route.post(
 
 route.get('/', authenticateToken, userController.getAllUsers);
 route.get('/:id', authenticateToken, userController.getById);
+route.delete('/me', authenticateToken, userController.deleteMyUser);
 
 module.exports = route;

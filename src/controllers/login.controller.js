@@ -6,6 +6,7 @@ const authorizationToken = async (req, res) => {
   if (response === 'Some required fields are missing') {
     return res.status(400).json({ message: response });
   }
+
   if (response === 'Invalid fields') {
     return res.status(400).json({ message: response });
   }
